@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var array1 = [];
+    var array2 = [];
+    for (let i = 0; i < 10; i++){
+        array1[i] = prompt("nhap 10 cac phan tu mang 1")
+    }
+    for (let i = 0; i < 10; i++){
+        array2[i] = prompt("nhap 10 cac phan tu mang 2")
+    }
+    document.write(array1 + "<br>")
+    document.write(array2+ "<br>")
+    var array3 = array1.concat(array2);
+    document.write(array3)
+</script>
+
+
+</body>
+</html>

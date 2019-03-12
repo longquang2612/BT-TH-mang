@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var  numbers = [53, 4558 , 4120 , -2165 , 2528 , 4500 , 3454, -435];
+    // Lấy giá trị lớn nhất và nhỏ nhất
+    var maxInNumbers = Math.max.apply(Math, numbers);
+    var minInNumbers = Math.min.apply(Math, numbers);
+    // In giá trị ra màn hình
+    document.write("Giá trị lớn nhất là " +maxInNumbers+ " vị trí "+ numbers.indexOf(maxInNumbers)+ "<br/>");
+    document.write("Giá trị nhỏ nhất là " +minInNumbers+ " vị trí "+ numbers.indexOf(minInNumbers)+ "<br/>");
+    var num = 0
+    for (var i = 0; i<= numbers.length - 1; i++) {
+        num = num + numbers[i];
+    }
+    document.write("Giá trị trung bình của mảng là " + (num/numbers.length))
+</script>
+
+</body>
+</html>
