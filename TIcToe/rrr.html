@@ -10,65 +10,66 @@
     <p id="carogame"/>
 </div>
 </body>
-<script type="text/javascript">
-    var outPut = document.getElementById("carogame");
-    var board = [];
-    var rows = 10;
-    var columns = 10;
-    var data = "";
-    var click = true;
-
-
-    outArray(rows, columns);
-
-    function clickbnt(id){
-        fill2DArray(board, rows, columns);
-        var idbtn = document.getElementById(id);
-        var x = parseInt(idbtn.id.substr(0, 1));
-        var y = parseInt(idbtn.id.substr(1, 1));
-        if (click) {
-            click = false;
-            idbtn.disabled = true;
-            idbtn.value = "O";
-            board[x][y] = "O";
-        }
-        else {
-            click = true;
-            idbtn.disabled = true;
-            idbtn.value = "X";
-            board[x][y] = "X";
-        }
-        check(idbtn, x, y);
+<h1>Tic tac toe </h1>
+<p id="banCo"></p>
+<input type="button" value="player 1" onclick="player1()">
+<input type="button" value="player 2" onclick="player2()">
+<script>
+    let banco = [];
+    let inbanco = "";
+    for (var i = 0; i < 5; i++) {
+        banco[i] = new Array('.', '.', '.', '.', '.');
     }
-
-    function check(idbtn, x, y){
-        var val = idbtn.value;
-        //if(board[x][y] == "X" && board[x+1][y+1] == "X")
-        console.log(board[x][y]);
-        console.log(board[1][1]);
-        console.log(board[x][y+1]);
+    for (var i = 0; i < 5; i++) {
+        inbanco += "<br/>";
+        for (var j = 0; j < 5; j++) {
+            inbanco += banco[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp";
+        }
     }
-
-
-    function outArray(rows, columns){
-        for (var i = 0; i < rows; i++) {
-            data += "<br/>";
-            for (var j = 0; j < columns; j++) {
-                data += "<input id='"+ i + j +"' style='width:30px; height:30px' type='button' value=' ' onclick='clickbnt(this.id)'>";
+    document.getElementById("banCo").innerHTML = inbanco;
+    function player1() {
+        let inbanco = "";
+        let hang = parseInt(prompt(' doi ky tu hang so'));
+        let cot = parseInt(prompt(' doi ky tu cot so'));
+        data = "";
+        banco[hang - 1][cot - 1] = "x";
+        for (var i = 0; i < 5; i++) {
+            inbanco += "<br/>";
+            for (var j = 0; j < 5; j++) {
+                inbanco += banco[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp";
             }
         }
-        outPut.innerHTML = data;
+        document.getElementById("banCo").innerHTML = inbanco;
+        checkWin();
     }
-
-    function fill2DArray(board, rows, columns){
-        for (var i = 0; i < rows; i++) {
-            board[i] = [];
-            for (var j = 0; j < columns; j++) {
-                board[i][j]= " ";
+    function player2() {
+        let inbanco = "";
+        let hang = parseInt(prompt(' doi ky tu hang so'));
+        let cot = parseInt(prompt(' doi ky tu cot so'));
+        data = "";
+        banco[hang - 1][cot - 1] = "o";
+        for (var i = 0; i < 5; i++) {
+            inbanco += "<br/>";
+            for (var j = 0; j < 5; j++) {
+                inbanco += banco[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp";
+            }
+        }
+        document.getElementById("banCo").innerHTML = inbanco;
+        checkWin();
+    }
+    function checkWin() {
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                if ((banco[i][j] === banco[i][j + 1]) && (banco[i][j + 1] === banco[i][j+2])) {
+                    if(banco[i][j] === "x"){
+                        alert('x win');
+                    }
+                    if(banco[i][j] === "o"){
+                        alert('o win');
+                    }
+                }
             }
         }
     }
-
-
 </script>
 </html>
